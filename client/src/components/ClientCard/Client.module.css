@@ -1,0 +1,79 @@
+.card {
+  width: 300px;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 12px;
+  position: relative;
+}
+
+.image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  align-self: center;
+  margin-bottom: 10px;
+}
+
+.message {
+  font-size: 14px;
+  color: #333;
+}
+
+.name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.role {
+  font-size: 13px;
+  color: #777;
+}
+
+/* ✅ Heading Styles */
+h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+  font-weight: bold;
+  border-bottom: 3px solid #f8c20d;
+  padding-bottom: 0.5rem;
+  text-align: center;
+  width: fit-content;
+  margin: 40px auto 2rem auto;
+}
+
+/* ✅ Wrapper to align multiple cards in a row */
+.cardWrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 0 20px 40px;
+}
+
+/* ✅ Responsive: For smaller screens */
+@media (max-width: 768px) {
+  .card {
+    width: 90%; /* Take more horizontal space */
+    align-items: center;
+    text-align: center;
+  }
+
+  .cardWrapper {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+}

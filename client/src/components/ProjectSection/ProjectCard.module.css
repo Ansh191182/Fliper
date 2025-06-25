@@ -1,0 +1,115 @@
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: #ffffff;
+}
+
+.heading {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+  font-weight: bold;
+  border-bottom: 3px solid #f8c20d;
+  padding-bottom: 0.5rem;
+}
+
+/* Wrapper for multiple cards */
+.cardWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Individual card */
+.card {
+  background-color: #f4f4f4;
+  padding: 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 250px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Card image */
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+/* Card text */
+.card h4 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #222;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Read more button */
+.card button {
+  background-color: #f8c20d;
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card button:hover {
+  background-color: #d4a20b;
+}
+
+/* ✅ Responsive Styles */
+@media (max-width: 768px) {
+  .cardWrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+  }
+
+  .heading {
+    font-size: 1.6rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardContainer {
+    padding: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+    width: 95%;
+  }
+
+  .card img {
+    height: 130px;
+  }
+
+  .card h4 {
+    font-size: 1rem;
+  }
+
+  .card button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
