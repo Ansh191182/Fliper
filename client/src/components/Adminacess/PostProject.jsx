@@ -9,6 +9,12 @@ const PostProject = () => {
     image: null,
   });
 
+  // ✅ Smart backend URL selection
+  const BASE_URL =
+    window.location.hostname === "localhost"
+      ? "http://localhost:8000"
+      : "https://fliper-1-uzjb.onrender.com";
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -26,7 +32,7 @@ const PostProject = () => {
       data.append("description", formData.description);
       data.append("image", formData.image);
 
-      const res = await axios.post("http://localhost:8000/projectPost", data);
+      const res = await axios.post(`${BASE_URL}/projectPost`, data);
       alert("Project submitted successfully!");
       console.log(res.data);
     } catch (err) {

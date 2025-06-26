@@ -10,6 +10,12 @@ const PostClient = () => {
     image: null,
   });
 
+  // ✅ Smart backend switch
+  const BASE_URL =
+    window.location.hostname === "localhost"
+      ? "http://localhost:8000"
+      : "https://fliper-1-uzjb.onrender.com";
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -28,7 +34,7 @@ const PostClient = () => {
       data.append("description", formData.description);
       data.append("image", formData.image);
 
-      const res = await axios.post("http://localhost:8000/clientPost", data);
+      const res = await axios.post(`${BASE_URL}/clientPost`, data);
       alert("Client added successfully!");
       console.log(res.data);
     } catch (err) {

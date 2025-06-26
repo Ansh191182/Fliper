@@ -14,6 +14,12 @@ const AdminLogin = () => {
     setShowP((prev) => !prev);
   };
 
+  // ✅ Dynamic backend base URL
+  const BASE_URL =
+    window.location.hostname === "localhost"
+      ? "http://localhost:8000"
+      : "https://fliper-1-uzjb.onrender.com";
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const key = keyRef.current.value;
@@ -24,7 +30,7 @@ const AdminLogin = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:8000/admin", {
+      const response = await axios.post(`${BASE_URL}/admin`, {
         ADMIN_KEY: key,
       });
 

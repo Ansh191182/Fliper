@@ -12,6 +12,12 @@ const Contact = () => {
     city: "",
   });
 
+  // ✅ Dynamic backend URL
+  const BASE_URL =
+    window.location.hostname === "localhost"
+      ? "http://localhost:8000"
+      : "https://fliper-1-uzjb.onrender.com";
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -20,7 +26,7 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:8000/contact", formData, {
+      await axios.post(`${BASE_URL}/contact`, formData, {
         headers: {
           "Content-Type": "application/json",
         },

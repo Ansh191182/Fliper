@@ -39,3 +39,11 @@
     display: none;
   }
 }
+.linkBtn {
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+}

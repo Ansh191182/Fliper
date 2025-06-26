@@ -5,19 +5,25 @@ import styles from "../ProjectSection/ProjectCard.module.css";
 const ProjectCard = () => {
   const [projects, setProjects] = useState([]);
 
+  // 🧠 Dynamic base URL
+  const BASE_URL =
+    window.location.hostname === "localhost"
+      ? "http://localhost:8000"
+      : "https://fliper-1-uzjb.onrender.com";
+
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/getProjects");
-        console.log(res.data); // Now you’ll see the full response
-        setProjects(res.data.data); // ✅ Fix: extract the actual array
+        const res = await axios.get(`${BASE_URL}/getProjects`);
+        console.log(res.data);
+        setProjects(res.data.data);
       } catch (err) {
         console.error("Fetch error:", err);
       }
     };
 
     fetchProjects();
-  }, []);
+  }, [BASE_URL]);
 
   return (
     <div className={styles.cardContainer}>
@@ -31,7 +37,7 @@ const ProjectCard = () => {
                 src={
                   project.image.startsWith("http")
                     ? project.image
-                    : `http://localhost:8000/uploads/${project.image}`
+                    : `${BASE_URL}/uploads/${project.image}`
                 }
                 alt={project.name}
               />
