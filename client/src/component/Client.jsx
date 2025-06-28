@@ -55,33 +55,37 @@ const Client = () => {
       ) : clients.length === 0 ? (
         <p className="text-center text-gray-500 text-xl">No clients found.</p>
       ) : (
-        <div className="flex flex-wrap justify-center gap-8">
-          {clients.map((client, index) => (
-            <div
-              key={index}
-              className="bg-white shadow-lg rounded-xl p-6 max-w-sm w-full text-center"
-            >
-              {/* Client Image */}
-              <div className="flex justify-center mb-4">
-                <img
-                  src={
-                    client.image && client.image.startsWith("http")
-                      ? client.image
-                      : "https://via.placeholder.com/100"
-                  }
-                  alt={client.name}
-                  className="w-24 h-24 rounded-full border-4 border-green-400 object-cover"
-                />
-              </div>
+        <div className="overflow-x-auto">
+          <div className="flex space-x-6 flex-nowrap pb-4">
+            {clients.map((client, index) => (
+              <div
+                key={index}
+                className="bg-white shadow-lg rounded-xl p-6 min-w-[280px] max-w-sm w-full text-center flex-shrink-0"
+              >
+                {/* Client Image */}
+                <div className="flex justify-center mb-4">
+                  <img
+                    src={
+                      client.image && client.image.startsWith("http")
+                        ? client.image
+                        : "https://via.placeholder.com/100"
+                    }
+                    alt={client.name}
+                    className="w-24 h-24 rounded-full border-4 border-green-400 object-cover"
+                  />
+                </div>
 
-              {/* Client Info */}
-              <p className="text-gray-600 mb-4 text-sm">{client.description}</p>
-              <h3 className="text-lg font-semibold text-green-700">
-                {client.name}
-              </h3>
-              <p className="text-sm text-gray-500">{client.designation}</p>
-            </div>
-          ))}
+                {/* Client Info */}
+                <p className="text-gray-600 mb-4 text-sm">
+                  {client.description}
+                </p>
+                <h3 className="text-lg font-semibold text-green-700">
+                  {client.name}
+                </h3>
+                <p className="text-sm text-gray-500">{client.designation}</p>
+              </div>
+            ))}
+          </div>
         </div>
       )}
     </div>
