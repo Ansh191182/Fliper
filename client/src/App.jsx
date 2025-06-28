@@ -1,16 +1,14 @@
-import "./App.css";
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
-import AdminLogin from "./pages/AdminLogin/AdminLogin";
+import AdminPannel from "./pages/AdminPannel";
+import EnterPage from "./component/EnterPage";
+import AddProject from "./component/AddProject";
+import AddClient from "./component/AddClient";
+import ShowMessage from "./component/ShowMessage";
+import ProtectedRoute from "./ProtectedRoute";
 import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css"; // Don't forget this
-import Footer from "./components/Footer/Footer";
-import ProtectedRoute from "./components/ProtectedRoute";
-import EnterPage from "./components/EnterPage/EnterPage";
-import PostProject from "./components/Adminacess/PostProject";
-import PostClient from "./components/Adminacess/PostClient";
-import Contact from "./components/Adminacess/Contact";
-import GetClient from "./components/Adminacess/GetClient";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
@@ -18,26 +16,24 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/admin" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminPannel />} />
+
+          {/* ✅ All protected routes inside Routes */}
           <Route
             path="/EnterPage"
             element={<ProtectedRoute element={<EnterPage />} />}
           />
           <Route
-            path="/postProject"
-            element={<ProtectedRoute element={<PostProject />} />}
+            path="/AddProject"
+            element={<ProtectedRoute element={<AddProject />} />}
           />
           <Route
-            path="/postclient"
-            element={<ProtectedRoute element={<PostClient />} />}
+            path="/AddClient"
+            element={<ProtectedRoute element={<AddClient />} />}
           />
           <Route
-            path="/contact"
-            element={<ProtectedRoute element={<Contact />} />}
-          />
-          <Route
-            path="/getClient"
-            element={<ProtectedRoute element={<GetClient />} />}
+            path="/showContact"
+            element={<ProtectedRoute element={<ShowMessage />} />}
           />
         </Routes>
       </BrowserRouter>
@@ -48,7 +44,6 @@ const App = () => {
         pauseOnHover
         theme="dark"
       />
-      <Footer />
     </>
   );
 };
